@@ -14,16 +14,54 @@ const categories = ()=>{
   .then(res=> res.json())
   .then(data=> loadCategories(data.categories))
 }
+async function selectCategory(categoryId, btn){
+  console.log(categoryId, btn)
+  //showLoading()
+ 
+  const allButtons = document.querySelectorAll("#categoriesContainer button, #allTreesbtn")
+  allButtons.forEach((btn)=>{
+    btn.classList.remove('btn-primary')
+    btn.classList.add('btn-outline')
+  })
+  btn.classList.add('btn-primary')
+  btn.classList.remove('btn-primary')
+  const url3= `https://openapi.programming-hero.com/api/category/${categoryId}`
+  fetch(url3)
+  .then(res=> res.json())
+  .then(data=> displayTrees(data.data || data.plants || data.category))
+}
+
+const allTreesBtnElement = document.getElementById('allTreesbtn');
+
+allTreesBtnElement.addEventListener("click", () => {
+  const allButtons = document.querySelectorAll("#categoriesContainer button, #allTreesbtn");
+  
+  allButtons.forEach((btn) => {
+    btn.classList.remove('btn-primary');
+    btn.classList.add('btn-outline');
+  });
+
+  allTreesBtnElement.classList.add('btn-primary');
+  allTreesBtnElement.classList.remove('btn-outline');
+
+  loadTrees(); 
+});
 
 const loadTrees = ()=>{
   const url2= 'https://openapi.programming-hero.com/api/plants'
+  toggleSpinner(true)
   fetch(url2)
   .then(res=> res.json())
-  .then(data=> displayTrees(data.plants))
-}
+  .then(data=> 
+    setTimeout(()=>{
+      displayTrees(data.plants)
+    toggleSpinner(false)
+    }, 1000)
+  )}
 
 const displayTrees =(trees)=>{
 const treesContainer = document.getElementById('treesContainer')
+treesContainer.innerHTML = ""
 for(const tree of trees){
   const card = document.createElement('div')
   card.innerHTML = `
@@ -53,11 +91,13 @@ loadTrees()
 
 const loadCategories = (category)=>{
   const categoriesContainer = document.getElementById('categoriesContainer')
+  categoriesContainer.innerHTML = ""
   for(const btns of category){
     const btn = document.createElement('div')
     btn.innerHTML = `
     <button class="btn w-61">${btns.category_name}</button>
     `
+    btn.onclick =()=>selectCategory(btns.id, btn)
     categoriesContainer.appendChild(btn)
   }
 }
