@@ -3,14 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Green Earth</title>
+<!-- title -->
+<title>Green Earth - Plant a Tree, Grow a Future</title>
 <!-- SEO Meta Tags -->
-<meta name="description" content="Your website short description here">
-<meta name="keywords" content="HTML, CSS, JavaScript, Web Design">
-<meta name="author" content="Your Name">
+<meta name="title" content="Green Earth - Join the Global Tree Plantation Mission">
+<meta name="description" content="Green Earth is a mission-driven platform dedicated to planting 1 million trees. Explore our tree categories, join our campaign, and help us make the world greener.">
+<meta name="keywords" content="Green Earth, plant a tree, reforestation, sustainable environment, buy plants online, tree plantation campaign, eco-friendly future">
+<meta name="author" content="Towfiqul Islam">
 <meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://your-website-link.com/">
+<meta property="og:title" content="Green Earth - Plant a Tree, Grow a Future">
+<meta property="og:description" content="Join our mission to plant 1 million trees. Every tree you plant helps build a sustainable future.">
+<meta property="og:image" content="https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Green Earth - Tree Plantation Campaign">
+<meta property="twitter:description" content="Help us make the Earth green again. Check out our tree collection and get involved today.">
 <!-- fav-icon -->
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp" type="image/x-icon">
 <!-- font-awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- Tailwind and Daisy UI CDN -->
@@ -19,61 +31,113 @@
 <link rel="stylesheet" href="./style.css">
 <!-- external CSS -->
 <link rel="stylesheet" href="./style.css">
+<!-- library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <!-- header-section -->
-<header class="">
-  <!-- navbar section -->
-<nav class="navbar bg-base-100 shadow-sm bg-[#15803D]">
-<div class="navbar-start">
-    <div class="dropdown">
-    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+<header class="bg-[#15803D] sticky top-0 z-50 shadow-md text-white">
+  <nav class="navbar container mx-auto px-4">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content bg-green-800 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2">
+          <li><a class="hover:bg-green-700">About</a></li>
+          <li><a class="hover:bg-green-700">Gallery</a></li>
+          <li><a class="hover:bg-green-700">Plant a Tree</a></li>
+        </ul>
+      </div>
+      <a class="btn btn-ghost text-2xl font-bold gap-2 italic">
+        <i class="fa-solid fa-leaf text-yellow-400"></i> Green Earth
+      </a>
     </div>
-    <ul
-    tabindex="-1"
-    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-    <li><a>About</a></li>
-    <li><a href="">Gallery</a></li>
-    <li><a>Plant a Tree</a></li>
-    </ul>
+
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1 font-medium space-x-4">
+        <li><a class="hover:text-yellow-400 transition-colors">About</a></li>
+        <li><a class="hover:text-yellow-400 transition-colors">Gallery</a></li>
+        <li><a class="hover:text-yellow-400 transition-colors">Plant a Tree</a></li>
+      </ul>
     </div>
-    <a class="btn btn-ghost text-xl">Green Earth</a>
+
+    <div class="navbar-end">
+  <button class="btn bg-yellow-500 hover:bg-yellow-600 border-none text-green-900 font-bold px-6 rounded-full shadow-lg" onclick="signup_modal.showModal()">
+    Sign up
+  </button>
 </div>
-<div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-    <li><a>About</a></li>
-    <li><a href="">Gallery</a></li>
-    <li><a>Plant a Tree</a></li>
-    </ul>
-</div>
-<div class="navbar-end">
-    <a class="btn">Sign up</a>
-</div>
-</nav>
+
+<dialog id="signup_modal" class="modal">
+  <div class="modal-box bg-white p-8 rounded-2xl shadow-2xl relative">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-500">✕</button>
+    </form>
+    
+    <div class="text-center mb-6">
+        <h3 class="font-bold text-3xl text-green-700">Create Account</h3>
+        <p class="text-gray-500">Join our Green Earth mission today!</p>
+    </div>
+
+    <form id="signupForm" class="space-y-4 text-center">
+      <div class="form-control">
+        <label class="label text-black"><span class="label-text font-semibold">Enter Your Full Name</span></label><br>
+        <input class="text-black pr-4 py-1 pl-1" type="text" id="userName" placeholder="Enter your name" class="input input-bordered w-full focus:outline-green-500" required />
+      </div>
+
+      <div class="form-control">
+        <label class="label text-black"><span class="label-text font-semibold">Mobile Number</span></label><br>
+        <input class="text-black pr-4 py-1 pl-1"  type="tel" id="userPhone" placeholder="017XXXXXXXX" class="input input-bordered w-full focus:outline-green-500" required />
+      </div>
+
+      <div class="form-control">
+        <label class="label text-black"><span class="label-text font-semibold">Email Address</span></label><br>
+        <input class="text-black pr-4 py-1 pl-1" type="email" id="userEmail" placeholder="example@mail.com" class="input input-bordered w-full focus:outline-green-500" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-full bg-green-700 border-none hover:bg-green-800 text-white mt-4 shadow-lg">
+        Create My Account
+      </button>
+    </form>
+  </div>
+</dialog>
+  </nav>
 </header>
 <!-- main-section -->
 <main class="container mx-auto">
 <!-- Hero Section -->
-<section
-  class="hero min-h-screen"
-  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
->
-  <div class="hero-overlay"></div>
-  <div class="hero-content text-neutral-content text-center">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Plant a Tree, Grow a Future</h1>
-      <p class="mb-5">
-        Join our mission to plant 1 million trees and make the Earth greener for future generations.
-      </p>
-      <button class="btn btn-primary">Get Involved</button>
+<section class="hero min-h-[85vh] rounded-3xl overflow-hidden mt-6 mb-12 relative shadow-2xl" 
+    style="background-image: url(https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000);">
+    
+    <div class="hero-overlay bg-black/50"></div>
+    
+    <div class="hero-content text-neutral-content text-center py-20">
+      <div class="max-w-2xl px-4">
+        <h1 class="mb-6 text-5xl md:text-7xl font-extrabold leading-tight text-white drop-shadow-lg">
+          Plant a Tree, <br> <span class="text-[#4ade80]">Grow a Future</span>
+        </h1>
+        <p class="mb-8 text-lg md:text-xl text-gray-200 leading-relaxed max-w-lg mx-auto italic font-medium">
+          Join our mission to plant 1 million trees and make the Earth greener for future generations. Every seedling counts toward a sustainable planet.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button class="btn btn-primary bg-[#15803D] hover:bg-[#166534] border-none px-8 text-lg shadow-xl hover:scale-105 transition-transform">
+            Get Involved
+          </button>
+          <button class="btn btn-outline border-white text-white hover:bg-white hover:text-green-800 px-8 text-lg shadow-xl">
+            Learn More
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="mt-6 mb-6">
-    <h2 class="text-[#4ade80] font-bold text-4xl text-center">Choose Your Trees</h2>
-</div>
+  <div class="mt-16 mb-10">
+    <h2 class="text-green-800 font-extrabold text-4xl md:text-5xl text-center flex items-center justify-center gap-4">
+      <hr class="w-16 h-1 bg-green-400 hidden sm:block"> Choose Your Trees <hr class="w-16 h-1 bg-green-400 hidden sm:block">
+    </h2>
+  </div>
 
         <section class="grid grid-cols-12 gap-8">
 
@@ -95,6 +159,25 @@
             <div class="bg-white card card-body shadow-2xl col-span-6">
                 <!-- Trees will rendered -->
                 <div id="treesContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <!-- Dynamically added here -->
+                    <!-- <div class="card bg-white shadow-sm">
+                        <figure>
+                            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                                alt="Shoes" />
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Card Title</h2>
+                            <p class="line-clamp-2">A card component has a figure, a body part, and inside body there
+                                are title and actions lorem1500
+                                parts</p>
+                            <div class="badge badge-success badge-outline">Success</div>
+
+                            <div class="flex justify-between items-center">
+                                <h2 class="font-bold text-xl text-[#4ade80]">$5000</h2>
+                                <button class="btn btn-primary ">Buy Now</button>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
                 <!-- loading spinner -->
                 <div id="loadingSpinner" class="h-[60vh] flex hidden justify-center items-center">
